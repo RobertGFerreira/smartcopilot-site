@@ -6,8 +6,14 @@
     <title>SmartCopilot - Inteligência e Lucro para Motoristas de App</title>
     <meta name="description" content="O SmartCopilot calcula seu custo por KM e analisa corridas em tempo real mostrando Valor/KM, Valor/Hora e Nota do passageiro.">
     
+    <!-- Ícone da Aba do Navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="smartcopilot_icon.png">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <script>
@@ -36,13 +42,13 @@
 </head>
 <body class="antialiased selection:bg-brand-primary selection:text-white">
 
+    <!-- Navegação -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center shadow-lg shadow-brand-primary/20">
-                        <i class="fa-solid fa-car-side text-white text-lg"></i>
-                    </div>
+                    <!-- LOGO NOVO AQUI -->
+                    <img src="smartcopilot_icon.png" alt="SmartCopilot Logo" class="w-10 h-10 rounded-xl shadow-lg shadow-brand-primary/20 object-cover">
                     <span class="font-bold text-2xl tracking-tight">SmartCopilot</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
@@ -54,6 +60,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="absolute inset-0 top-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div class="absolute top-0 right-0 -mr-48 mt-20 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl"></div>
@@ -82,6 +89,7 @@
         </div>
     </section>
 
+    <!-- Funcionalidades Resumo -->
     <section id="funcionalidades" class="py-20 border-t border-white/5 bg-brand-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -90,6 +98,7 @@
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1: Gasto do Veículo -->
                 <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300 flex gap-6">
                     <div class="w-16 h-16 shrink-0 bg-brand-primary/20 rounded-xl flex items-center justify-center">
                         <i class="fa-solid fa-calculator text-brand-primary text-2xl"></i>
@@ -100,6 +109,7 @@
                     </div>
                 </div>
 
+                <!-- Card 2: Semáforo -->
                 <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300 flex gap-6">
                     <div class="w-16 h-16 shrink-0 bg-brand-accent/20 rounded-xl flex items-center justify-center">
                         <i class="fa-solid fa-traffic-light text-brand-accent text-2xl"></i>
@@ -110,6 +120,7 @@
                     </div>
                 </div>
 
+                <!-- Card 3: Bateria -->
                 <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300 flex gap-6">
                     <div class="w-16 h-16 shrink-0 bg-yellow-500/20 rounded-xl flex items-center justify-center">
                         <i class="fa-solid fa-battery-full text-yellow-400 text-2xl"></i>
@@ -120,6 +131,7 @@
                     </div>
                 </div>
 
+                <!-- Card 4: Preço -->
                 <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300 flex gap-6">
                     <div class="w-16 h-16 shrink-0 bg-purple-500/20 rounded-xl flex items-center justify-center">
                         <i class="fa-solid fa-hand-holding-dollar text-purple-400 text-2xl"></i>
@@ -133,6 +145,7 @@
         </div>
     </section>
 
+    <!-- Política de Privacidade (Obrigatório Google Play) -->
     <section id="privacidade" class="py-24 bg-[#080d1a] border-t border-white/5">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="glass-card p-8 md:p-12 rounded-3xl">
@@ -180,10 +193,12 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-brand-dark py-12 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
             <div class="flex items-center gap-2 mb-6">
-                <i class="fa-solid fa-car-side text-brand-primary text-xl"></i>
+                <!-- LOGO NOVO AQUI -->
+                <img src="smartcopilot_icon.png" alt="SmartCopilot Logo" class="w-8 h-8 rounded-lg object-cover">
                 <span class="font-bold text-xl tracking-tight text-white">SmartCopilot</span>
             </div>
             <p class="text-gray-500 text-sm mb-4">Dirija com inteligência. Maximize seus ganhos.</p>
