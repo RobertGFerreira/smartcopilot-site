@@ -3,88 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartCopilot - Inteligência para Motoristas</title>
-    <meta name="description" content="Aumente seus ganhos na Uber e 99. O SmartCopilot calcula seu lucro real e evita áreas de risco.">
+    <title>SmartCopilot - Inteligência e Lucro para Motoristas de App</title>
+    <meta name="description" content="O SmartCopilot calcula seu custo por KM e analisa corridas em tempo real mostrando Valor/KM, Valor/Hora e Nota do passageiro.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
                         brand: {
-                            dark: '#0f172a',
-                            card: '#1e293b',
-                            neon: '#10b981',
-                            accent: '#0ea5e9',
-                            danger: '#ef4444'
+                            dark: '#0B1120',    // Fundo principal escuro
+                            card: '#1E293B',    // Fundo de cards
+                            primary: '#10B981', // Verde esmeralda (Lucro/Sinal Verde)
+                            accent: '#0EA5E9',  // Azul ciano (Tecnologia)
                         }
-                    },
-                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                    }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #0f172a; color: white; }
-        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(to right, #10b981, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { background-color: #0B1120; color: #F8FAFC; }
+        .glass-nav { background: rgba(11, 17, 32, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .glass-card { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
+        .text-gradient { background: linear-gradient(to right, #10B981, #0EA5E9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="antialiased">
-    <nav class="fixed w-full z-50 glass">
+<body class="antialiased selection:bg-brand-primary selection:text-white">
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-car-on text-brand-neon text-2xl"></i>
-                    <span class="font-bold text-xl tracking-tight">SmartCopilot</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#funcionalidades" class="hover:text-brand-neon px-3 py-2 rounded-md text-sm font-medium">Funcionalidades</a>
-                        <a href="#privacidade" class="hover:text-brand-neon px-3 py-2 rounded-md text-sm font-medium">Privacidade</a>
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center shadow-lg shadow-brand-primary/20">
+                        <i class="fa-solid fa-car-side text-white text-lg"></i>
                     </div>
+                    <span class="font-bold text-2xl tracking-tight">SmartCopilot</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-gray-300 hover:text-brand-primary transition font-medium">Início</a>
+                    <a href="#funcionalidades" class="text-gray-300 hover:text-brand-primary transition font-medium">Como Funciona</a>
+                    <a href="#privacidade" class="text-gray-300 hover:text-brand-primary transition font-medium">Privacidade</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="relative pt-32 pb-16 sm:pt-40 sm:pb-24 overflow-hidden">
+    <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 top-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="absolute top-0 right-0 -mr-48 mt-20 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-48 mb-20 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl"></div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
-                <span class="block">Dirija com</span>
-                <span class="gradient-text">Inteligência Real</span>
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-sm text-brand-primary font-bold mb-6">
+                <i class="fa-solid fa-gift"></i>
+                Lançamento: 100% Grátis para Motoristas
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+                O controle da sua <br class="hidden md:block" />
+                <span class="text-gradient">Corrida em Segundos</span>
             </h1>
-            <p class="mt-4 text-gray-300 max-w-2xl mx-auto">
-                O SmartCopilot calcula seu lucro líquido, monitora áreas de risco e ajuda você a decidir em segundos.
+            <p class="mt-4 text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                Saiba seu custo real, configure sua meta e veja na tela o Valor/KM, Valor/Hora e a Nota do passageiro assim que o app tocar.
             </p>
-            <div class="mt-8 flex justify-center gap-4">
-                <a href="#" class="px-8 py-3 rounded-full bg-brand-neon text-brand-dark font-bold hover:bg-emerald-400 transition">
-                    <i class="fa-brands fa-google-play mr-2"></i> Baixar Agora
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#download" class="px-8 py-4 rounded-xl bg-brand-primary text-brand-dark font-bold text-lg hover:bg-emerald-400 transition shadow-lg shadow-brand-primary/30 flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-google-play"></i> Baixar na Play Store
+                </a>
+                <a href="#funcionalidades" class="px-8 py-4 rounded-xl glass-card text-white font-bold text-lg hover:bg-white/10 transition flex items-center justify-center">
+                    Ver Funcionalidades
                 </a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div id="privacidade" class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="glass p-8 rounded-2xl">
-            <h2 class="text-2xl font-bold mb-6 text-white border-b border-gray-700 pb-2">Política de Privacidade</h2>
-            <div class="prose prose-invert text-gray-300 text-sm">
-                <p><strong>Última atualização:</strong> 18 de Fevereiro de 2026</p>
-                <p>O SmartCopilot respeita sua privacidade.</p>
-                <h4 class="text-white font-bold mt-4">1. Uso do Serviço de Acessibilidade</h4>
-                <p>Utilizamos a API de Acessibilidade exclusivamente para ler dados de tela (preço, distância) dos apps de transporte (Uber, 99) em primeiro plano. <strong>Finalidade:</strong> Calcular ganhos reais. <strong>Segurança:</strong> Nenhum dado é compartilhado com terceiros.</p>
-                <h4 class="text-white font-bold mt-4">2. Dados de Localização</h4>
-                <p>Coletamos localização em segundo plano para monitorar áreas de risco.</p>
-                <h4 class="text-white font-bold mt-4">3. Contato</h4>
-                <p>Dúvidas: suporte.smartcopilot@gmail.com</p>
+    <section id="funcionalidades" class="py-20 border-t border-white/5 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Feito para o motorista lucrar mais</h2>
+                <p class="text-gray-400 mt-4">Informação rápida na hora que a corrida toca, sem gastar a sua bateria.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300 flex gap-6">
+                    <div class="w-16 h-16 shrink-0 bg-brand-primary/20 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-calculator text-brand-primary text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Descubra seu Custo Base</h3>
+                        <p class="text-gray-400 text-sm">Use nossa ferramenta para calcular exatamente qual é o seu custo por KM rodado (combustível e manutenção). Com esse valor em mãos, você configura o Semáforo do app com a <strong>sua meta ideal</strong> de lucro.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300 flex gap-6">
+                    <div class="w-16 h-16 shrink-0 bg-brand-accent/20 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-traffic-light text-brand-accent text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Análise em Tempo Real</h3>
+                        <p class="text-gray-400 text-sm">A corrida tocou? O SmartCopilot lê a tela instantaneamente e te mostra o <strong>Valor/KM, Valor/Hora e a Nota do Passageiro</strong>. Tudo pintado de Verde ou Vermelho baseado na meta que você definiu.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300 flex gap-6">
+                    <div class="w-16 h-16 shrink-0 bg-yellow-500/20 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-battery-full text-yellow-400 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Máxima Economia de Bateria</h3>
+                        <p class="text-gray-400 text-sm">Diferente de ferramentas que analisam tudo o tempo todo, o SmartCopilot é eficiente: ele <strong>só atua quando um aplicativo de corrida está na tela</strong>, não gastando bateria ou memória à toa ao longo do dia.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition duration-300 flex gap-6">
+                    <div class="w-16 h-16 shrink-0 bg-purple-500/20 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-hand-holding-dollar text-purple-400 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">100% Gratuito no Lançamento</h3>
+                        <p class="text-gray-400 text-sm">Aproveite a nossa fase de lançamento para ter a ferramenta definitiva de ganhos no seu celular. Comece a maximizar seus lucros agora mesmo sem pagar mensalidades abusivas.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <footer class="bg-brand-dark py-8 border-t border-gray-800 text-center">
-        <p class="text-gray-500 text-sm">&copy; 2026 SmartCopilot.</p>
+    </section>
+
+    <section id="privacidade" class="py-24 bg-[#080d1a] border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card p-8 md:p-12 rounded-3xl">
+                <div class="flex items-center gap-4 mb-8 border-b border-gray-700 pb-6">
+                    <i class="fa-solid fa-shield-halved text-brand-primary text-3xl"></i>
+                    <h2 class="text-3xl font-bold text-white">Política de Privacidade</h2>
+                </div>
+                
+                <div class="prose prose-invert max-w-none text-gray-300 space-y-6">
+                    <p class="text-sm text-gray-500 font-mono">Última atualização: 19 de Fevereiro de 2026</p>
+                    
+                    <p>O <strong>SmartCopilot</strong> ("nós", "nosso", "aplicativo") tem o compromisso de proteger a sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações ao utilizar nosso aplicativo móvel.</p>
+
+                    <h3 class="text-xl font-bold text-white mt-8 mb-4">1. Uso da API de Acessibilidade (IMPORTANTE)</h3>
+                    <p>O SmartCopilot utiliza o <strong>Serviço de Acessibilidade do Android (Accessibility API)</strong> como sua principal funcionalidade. Abaixo detalhamos seu uso:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Por que solicitamos?</strong> Precisamos da Acessibilidade para ler as informações de oferta de corrida (valor, tempo estimado, distância) diretamente na tela dos aplicativos parceiros de mobilidade assim que elas aparecem.</li>
+                        <li><strong>Otimização de Energia:</strong> Nosso serviço foi projetado para ser ativado <strong>apenas</strong> quando o aplicativo de transporte alvo estiver em primeiro plano, garantindo sua privacidade e economizando bateria em outros aplicativos de uso pessoal.</li>
+                        <li><strong>O que fazemos com isso?</strong> Utilizamos esses números estritamente em tempo real para calcular e exibir o valor por KM, valor por Hora e a Nota do Passageiro no momento da solicitação.</li>
+                        <li><strong>O que NÃO fazemos?</strong> <strong>NÃO</strong> gravamos sua tela, <strong>NÃO</strong> coletamos dados pessoais do passageiro (nome, foto, destino exato rastreável), <strong>NÃO</strong> interagimos com o app por você (não clicamos em aceitar automaticamente) e <strong>NÃO</strong> enviamos esses dados de terceiros para nossos servidores. O cálculo ocorre localmente no seu aparelho.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-white mt-8 mb-4">2. Dados que Coletamos</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Informações de Conta:</strong> Ao fazer login com o Google, recebemos seu e-mail e nome público para criação e autenticação da conta em nossa base de dados (Firebase).</li>
+                        <li><strong>Uso do App:</strong> Coletamos dados estatísticos anônimos de travamentos e uso de tela (via Google Analytics/Crashlytics) para melhorar a estabilidade do app.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-white mt-8 mb-4">3. Compartilhamento de Informações</h3>
+                    <p>Nós <strong>não vendemos, alugamos ou comercializamos</strong> suas informações pessoais. Seus dados de login são geridos de forma segura pelo Google Firebase. O aplicativo utiliza os serviços do Google AdMob para exibição de anúncios publicitários, os quais podem coletar identificadores anônimos de publicidade do dispositivo para apresentar anúncios relevantes, conforme as políticas do Google.</p>
+
+                    <h3 class="text-xl font-bold text-white mt-8 mb-4">4. Exclusão de Conta e Dados (Direito do Usuário)</h3>
+                    <p>Você tem total controle sobre seus dados. A qualquer momento, você pode solicitar a exclusão permanente da sua conta e de todos os dados associados a ela.</p>
+                    <p><strong>Como excluir:</strong></p>
+                    <ul class="list-decimal pl-5 space-y-2">
+                        <li><strong>Pelo Aplicativo:</strong> Acesse o menu <em>Perfil > Editar Perfil > Excluir Conta</em> e confirme a ação. Os dados serão apagados imediatamente do nosso banco de dados.</li>
+                        <li><strong>Por E-mail:</strong> Envie um e-mail para <a href="mailto:suporte.smartcopilot@gmail.com" class="text-brand-accent hover:underline">suporte.smartcopilot@gmail.com</a> a partir do e-mail cadastrado, com o assunto "Solicitação de Exclusão de Dados". Processaremos sua solicitação em até 7 dias úteis.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-white mt-8 mb-4">5. Contato</h3>
+                    <p>Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco:</p>
+                    <p><i class="fa-solid fa-envelope mr-2"></i> <a href="mailto:suporte.smartcopilot@gmail.com" class="text-brand-accent hover:underline">suporte.smartcopilot@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+            <div class="flex items-center gap-2 mb-6">
+                <i class="fa-solid fa-car-side text-brand-primary text-xl"></i>
+                <span class="font-bold text-xl tracking-tight text-white">SmartCopilot</span>
+            </div>
+            <p class="text-gray-500 text-sm mb-4">Dirija com inteligência. Maximize seus ganhos.</p>
+            <p class="text-gray-600 text-sm">&copy; 2026 SmartCopilot. Todos os direitos reservados.</p>
+        </div>
     </footer>
+
 </body>
 </html>
